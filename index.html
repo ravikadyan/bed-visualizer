@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,192 +7,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --cream:#FBF8F3;
-  --warm:#F5EFE6;
-  --gold:#C9972A;
-  --gold-soft:#E8D5A3;
-  --blue:#1B3A6B;
-  --blue-light:#2952A3;
-  --dark:#1A1208;
-  --mid:#7A6E5F;
-  --white:#FFFDF9;
-  --shadow:0 4px 24px rgba(26,18,8,.1);
-}
+:root{--cream:#FBF8F3;--gold:#C9972A;--gold-soft:#E8D5A3;--blue:#1B3A6B;--blue2:#2952A3;--dark:#1A1208;--mid:#7A6E5F;--white:#FFFDF9}
 html,body{height:100%;overflow-x:hidden}
-body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh}
-
-/* ── HEADER ── */
-.hdr{
-  background:var(--blue);
-  padding:14px 20px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:100;
-}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark)}
+.hdr{background:var(--blue);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold-soft);letter-spacing:.04em}
-.badge{
-  font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
-  background:var(--gold);color:#fff;
-  padding:4px 10px;border-radius:20px;font-weight:500;
-}
-
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(160deg,var(--blue) 0%,#1e4080 60%,#2952A3 100%);
-  padding:36px 24px 32px;text-align:center;position:relative;overflow:hidden;
-}
-.hero::after{
-  content:'';position:absolute;bottom:-1px;left:0;right:0;height:32px;
-  background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%);
-}
-.hero-tag{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.hero h1{
-  font-family:'Playfair Display',serif;font-size:clamp(1.7rem,6vw,2.6rem);
-  color:#fff;font-weight:400;line-height:1.2;margin-bottom:10px;
-}
+.badge{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:#fff;padding:4px 10px;border-radius:20px;font-weight:500}
+.hero{background:linear-gradient(160deg,var(--blue) 0%,#1e4080 60%,var(--blue2) 100%);padding:32px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:28px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
+.etag{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5.5vw,2.4rem);color:#fff;font-weight:400;line-height:1.2;margin-bottom:8px}
 .hero h1 em{font-style:italic;color:var(--gold-soft)}
-.hero p{font-size:.85rem;color:rgba(255,255,255,.6);max-width:320px;margin:0 auto;line-height:1.6}
-
-/* ── STEPS ── */
-.steps{display:flex;justify-content:center;gap:0;padding:28px 20px 0;margin-bottom:-4px}
-.step{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  flex:1;max-width:100px;position:relative;
-}
-.step:not(:last-child)::after{
-  content:'';position:absolute;top:14px;left:60%;width:80%;height:1px;
-  background:var(--gold-soft);
-}
-.step-num{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--blue);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.75rem;font-weight:500;
-}
-.step.done .step-num{background:var(--gold)}
-.step-lbl{font-size:.65rem;color:var(--mid);text-align:center;line-height:1.3}
-
-/* ── MAIN ── */
-.main{padding:24px 16px 100px;max-width:600px;margin:0 auto}
-
-/* ── UPLOAD ZONE ── */
-.upload-card{
-  background:var(--white);border-radius:20px;
-  border:2px dashed var(--gold-soft);
-  padding:32px 20px;text-align:center;
-  cursor:pointer;transition:all .2s;
-  position:relative;overflow:hidden;
-  margin-bottom:16px;
-}
-.upload-card:hover,.upload-card.drag{border-color:var(--gold);background:#FDF8EE}
-.upload-card input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.upload-icon{
-  width:52px;height:52px;margin:0 auto 14px;
-  background:linear-gradient(135deg,var(--blue),var(--blue-light));
-  border-radius:14px;display:flex;align-items:center;justify-content:center;
-}
-.upload-icon svg{width:26px;height:26px;color:#fff}
-.upload-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:6px;color:var(--dark)}
-.upload-card p{font-size:.78rem;color:var(--mid);line-height:1.5}
-.upload-card .hint{
-  margin-top:14px;font-size:.72rem;color:var(--gold);
-  background:#FDF3DC;padding:6px 14px;border-radius:20px;display:inline-block;
-}
-
-/* ── CANVAS AREA ── */
-.canvas-wrap{
-  background:var(--white);border-radius:20px;
-  overflow:hidden;position:relative;
-  box-shadow:var(--shadow);
-  display:none;margin-bottom:16px;
-}
-.canvas-wrap.show{display:block}
-#mainCanvas{
-  width:100%;display:block;
-  touch-action:none;cursor:grab;
-}
-#mainCanvas:active{cursor:grabbing}
-
-/* ── TOOLBAR ── */
-.toolbar{
-  background:var(--white);border-radius:16px;
-  padding:16px;box-shadow:var(--shadow);
-  display:none;margin-bottom:16px;
-}
-.toolbar.show{display:block}
-.tb-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:10px;font-weight:500}
-.slider-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.slider-row label{font-size:.78rem;color:var(--dark);min-width:70px}
-.slider-row input[type=range]{flex:1;accent-color:var(--blue);height:4px}
-.slider-row span{font-size:.75rem;color:var(--mid);min-width:34px;text-align:right}
-.tb-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-.tb-btn{
-  padding:10px;border-radius:10px;border:none;
-  font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:500;
-  cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;
-}
-.tb-btn.outline{background:transparent;border:1.5px solid var(--gold-soft);color:var(--blue)}
-.tb-btn.outline:hover{background:var(--warm);border-color:var(--gold)}
-.tb-btn.primary{background:var(--blue);color:#fff}
-.tb-btn.primary:hover{background:var(--blue-light)}
-.tb-btn svg{width:15px;height:15px}
-
-/* ── PRODUCT STRIP ── */
-.product-strip{
-  background:var(--white);border-radius:16px;
-  padding:16px;box-shadow:var(--shadow);margin-bottom:16px;
-}
-.prod-img{
-  width:100%;border-radius:12px;overflow:hidden;
-  aspect-ratio:4/3;object-fit:cover;display:block;
-  border:2px solid var(--gold-soft);
-}
-.prod-name{
-  font-family:'Playfair Display',serif;font-size:1rem;
-  margin:10px 0 4px;color:var(--dark);
-}
-.prod-price{font-size:.85rem;color:var(--gold);font-weight:500}
-.btn-buy{
-  width:100%;margin-top:12px;padding:13px;
-  background:var(--blue);color:#fff;border:none;border-radius:12px;
-  font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;
-  cursor:pointer;transition:all .2s;letter-spacing:.02em;
-}
-.btn-buy:hover{background:var(--blue-light);transform:translateY(-1px)}
-
-/* ── INSTRUCTIONS ── */
-.instructions{
-  background:linear-gradient(135deg,#EEF3FF,#F5F0FF);
-  border-radius:16px;padding:18px;
-  border:1px solid rgba(27,58,107,.1);
-}
-.inst-title{font-size:.78rem;font-weight:500;color:var(--blue);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase}
-.inst-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
-.inst-item:last-child{margin-bottom:0}
-.inst-dot{
-  width:20px;height:20px;border-radius:50%;background:var(--blue);
-  color:#fff;font-size:.65rem;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;margin-top:1px;
-}
-.inst-item p{font-size:.78rem;color:var(--mid);line-height:1.5}
-
-/* ── LOADING ── */
-.loader{
-  position:absolute;inset:0;background:rgba(251,248,243,.92);
-  display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;
-  border-radius:20px;z-index:10;
-}
-.loader.on{display:flex}
-.spin{width:32px;height:32px;border:3px solid var(--gold-soft);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite}
+.hero p{font-size:.82rem;color:rgba(255,255,255,.6);max-width:300px;margin:0 auto;line-height:1.5}
+.steps{display:flex;justify-content:center;padding:22px 16px 0}
+.step{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;max-width:85px;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;top:12px;left:62%;width:76%;height:1px;background:rgba(255,255,255,.2)}
+.snum{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.15);color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:500}
+.step.active .snum{background:var(--gold);color:#fff}
+.step.done .snum{background:rgba(255,255,255,.3);color:#fff}
+.slbl{font-size:.6rem;color:rgba(255,255,255,.45);text-align:center;line-height:1.3}
+.step.active .slbl{color:var(--gold-soft)}
+.step.done .slbl{color:rgba(255,255,255,.55)}
+.main{padding:20px 16px 100px;max-width:600px;margin:0 auto}
+.ucard{background:var(--white);border-radius:20px;border:2px dashed var(--gold-soft);padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;margin-bottom:16px}
+.ucard:hover,.ucard.drag{border-color:var(--gold);background:#FDF8EE}
+.ucard input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.uicon{width:50px;height:50px;margin:0 auto 12px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:13px;display:flex;align-items:center;justify-content:center}
+.uicon svg{width:24px;height:24px;color:#fff}
+.ucard h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:5px}
+.ucard p{font-size:.77rem;color:var(--mid);line-height:1.5}
+.uhint{margin-top:12px;font-size:.7rem;color:var(--gold);background:#FDF3DC;padding:5px 14px;border-radius:20px;display:inline-block}
+.cwrap{background:#111;border-radius:20px;overflow:hidden;position:relative;box-sizing:border-box;display:none;margin-bottom:14px}
+.cwrap.show{display:block}
+#c{width:100%;display:block;touch-action:none;cursor:crosshair}
+.phasebar{position:absolute;top:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;padding:7px 16px;border-radius:20px;font-size:.73rem;white-space:nowrap;pointer-events:none;backdrop-filter:blur(4px);display:flex;align-items:center;gap:7px;z-index:10}
+.pdot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.tb{background:var(--white);border-radius:16px;padding:14px 16px;box-shadow:0 4px 24px rgba(26,18,8,.1);display:none;margin-bottom:14px}
+.tb.show{display:block}
+.tbl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:10px;font-weight:500}
+.infobox{background:#EEF3FF;border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:.75rem;color:#2952A3;line-height:1.6}
+.srow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.srow label{font-size:.75rem;color:var(--dark);min-width:60px}
+.srow input[type=range]{flex:1;accent-color:var(--blue)}
+.srow span{font-size:.72rem;color:var(--mid);min-width:30px;text-align:right}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px}
+.btn{padding:10px 8px;border-radius:10px;border:none;font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:500;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.btn svg{width:14px;height:14px}
+.btn.out{background:transparent;border:1.5px solid var(--gold-soft);color:var(--blue)}
+.btn.out:hover{background:#FDF8EE;border-color:var(--gold)}
+.btn.pri{background:var(--blue);color:#fff}
+.btn.pri:hover{background:var(--blue2)}
+.btn.gold{background:var(--gold);color:#fff;grid-column:1/-1;padding:13px;font-size:.85rem}
+.btn.gold:hover{background:#b8861f}
+.pcard{background:var(--white);border-radius:16px;padding:14px;box-shadow:0 4px 24px rgba(26,18,8,.1);margin-bottom:14px}
+.pimg{width:100%;border-radius:10px;aspect-ratio:4/3;object-fit:cover;border:1.5px solid var(--gold-soft)}
+.pname{font-family:'Playfair Display',serif;font-size:.95rem;margin:9px 0 3px}
+.pprice{font-size:.82rem;color:var(--gold);font-weight:500}
+.pbuy{width:100%;margin-top:10px;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:500;cursor:pointer}
+.howto{background:linear-gradient(135deg,#EEF3FF,#F5F0FF);border-radius:16px;padding:16px;border:1px solid rgba(27,58,107,.1)}
+.htitle{font-size:.72rem;font-weight:500;color:var(--blue);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase}
+.hitem{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px}
+.hitem:last-child{margin-bottom:0}
+.hdot{width:19px;height:19px;border-radius:50%;background:var(--blue);color:#fff;font-size:.62rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.hitem p{font-size:.76rem;color:var(--mid);line-height:1.5}
+.ldr{position:absolute;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:20}
+.ldr.on{display:flex}
+.spin{width:30px;height:30px;border:3px solid rgba(255,255,255,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loader p{font-size:.82rem;color:var(--mid)}
-
-/* ── TOAST ── */
-.toast{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--dark);color:#fff;padding:10px 20px;border-radius:20px;
-  font-size:.8rem;transition:transform .3s ease;z-index:999;white-space:nowrap;
-}
+.ldr p{font-size:.8rem;color:rgba(255,255,255,.8)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--dark);color:#fff;padding:9px 18px;border-radius:20px;font-size:.78rem;transition:transform .3s;z-index:999;white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
 </style>
 </head>
@@ -204,431 +88,454 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark);m
 </div>
 
 <div class="hero">
-  <div class="hero-tag">New Feature</div>
+  <div class="etag">New Feature</div>
   <h1>See it on <em>your</em> bed<br>before you order</h1>
-  <p>Upload a photo of your bedroom and place our comforter on it to see how it looks</p>
-</div>
-
-<div class="steps" id="stepsRow">
-  <div class="step done" id="s1"><div class="step-num">1</div><div class="step-lbl">Upload bed photo</div></div>
-  <div class="step" id="s2"><div class="step-num">2</div><div class="step-lbl">Position comforter</div></div>
-  <div class="step" id="s3"><div class="step-num">3</div><div class="step-lbl">Save & share</div></div>
+  <p>Mark your bed corners — we warp the comforter to fit your exact angle</p>
+  <div class="steps">
+    <div class="step active" id="s1"><div class="snum">1</div><div class="slbl">Upload</div></div>
+    <div class="step" id="s2"><div class="snum">2</div><div class="slbl">Mark corners</div></div>
+    <div class="step" id="s3"><div class="snum">3</div><div class="slbl">Preview</div></div>
+    <div class="step" id="s4"><div class="snum">4</div><div class="slbl">Save & share</div></div>
+  </div>
 </div>
 
 <div class="main">
-
-  <!-- UPLOAD -->
-  <div class="upload-card" id="uploadCard">
-    <input type="file" id="fileInput" accept="image/*">
-    <div class="upload-icon">
-      <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-        <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
-      </svg>
-    </div>
+  <div class="ucard" id="uc">
+    <input type="file" id="fi" accept="image/*">
+    <div class="uicon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>
     <h3>Upload your bed photo</h3>
-    <p>Take a photo of your bed from any angle.<br>Works best with natural lighting.</p>
-    <div class="hint">📸 Tap to choose from gallery or camera</div>
+    <p>Any angle works — front, side, diagonal.<br>Natural lighting gives best results.</p>
+    <div class="uhint">📸 Tap to choose photo or take new one</div>
   </div>
 
-  <!-- CANVAS -->
-  <div class="canvas-wrap" id="canvasWrap">
-    <canvas id="mainCanvas"></canvas>
-    <div class="loader" id="loader"><div class="spin"></div><p>Loading comforter…</p></div>
-  </div>
-
-  <!-- TOOLBAR -->
-  <div class="toolbar" id="toolbar">
-    <div class="tb-label">Adjust Preview</div>
-    <div class="slider-row">
-      <label>Opacity</label>
-      <input type="range" min="20" max="100" value="85" id="opSlider">
-      <span id="opVal">85%</span>
+  <div class="cwrap" id="cw">
+    <canvas id="c"></canvas>
+    <div class="phasebar" id="phbar">
+      <div class="pdot"></div>
+      <span id="phtxt">Drag the 4 dots to your bed corners</span>
     </div>
-    <div class="slider-row">
-      <label>Size</label>
-      <input type="range" min="30" max="150" value="80" id="szSlider">
-      <span id="szVal">80%</span>
+    <div class="ldr" id="ldr"><div class="spin"></div><p id="ldrtxt">Applying comforter…</p></div>
+  </div>
+
+  <div class="tb" id="tb">
+    <!-- CORNER TOOLBAR -->
+    <div id="ctb">
+      <div class="tbl">Step 2 — Mark your bed corners</div>
+      <div class="infobox">
+        Drag each coloured dot to a corner of your bed.<br>
+        <strong>🔴 Top-left &nbsp; 🟡 Top-right &nbsp; 🟢 Bottom-right &nbsp; 🔵 Bottom-left</strong>
+      </div>
+      <div class="btns">
+        <button class="btn out" onclick="resetCorners()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Reset dots
+        </button>
+        <button class="btn out" onclick="changePhoto()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909"/></svg>New photo
+        </button>
+        <button class="btn gold" onclick="applyWarp()">✦ Apply Comforter to My Bed</button>
+      </div>
     </div>
-    <div class="tb-btns">
-      <button class="tb-btn outline" onclick="resetPosition()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-        Reset
-      </button>
-      <button class="tb-btn outline" onclick="changePhoto()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 21h18M9.75 8.25a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>
-        New Photo
-      </button>
-      <button class="tb-btn outline" onclick="saveImage()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-        Save Preview
-      </button>
-      <button class="tb-btn primary" onclick="shareImage()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/></svg>
-        Share
-      </button>
+    <!-- RESULT TOOLBAR -->
+    <div id="rtb" style="display:none">
+      <div class="tbl">Adjust your preview</div>
+      <div class="srow">
+        <label>Opacity</label>
+        <input type="range" min="30" max="100" value="90" id="opS" oninput="reapply(this.value)">
+        <span id="opV">90%</span>
+      </div>
+      <div class="btns">
+        <button class="btn out" onclick="backToCorners()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>Adjust corners
+        </button>
+        <button class="btn out" onclick="changePhoto()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159"/></svg>New photo
+        </button>
+        <button class="btn out" onclick="saveImg()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>Save
+        </button>
+        <button class="btn pri" onclick="shareImg()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/></svg>Share
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- PRODUCT STRIP -->
-  <div class="product-strip" id="productStrip">
-    <img class="prod-img" src="https://www.decorbajar.com/cdn/shop/files/WhatsApp_Image_2025-11-28_at_12.53.16_PM.jpg" alt="Daisy Pink Comforter Set" onerror="this.src='https://via.placeholder.com/400x300/F4A8B5/ffffff?text=Daisy+Pink+Set'">
-    <div class="prod-name">Daisy Pink AC Comforter Set</div>
-    <div class="prod-price">Starting ₹1,750 · Free Delivery · 100% Prepaid</div>
-    <button class="btn-buy" onclick="window.open('https://www.decorbajar.com','_blank')">Shop Now on DecorBajar →</button>
+  <div class="pcard">
+    <img class="pimg" id="prodImg" src="https://www.decorbajar.com/cdn/shop/files/WhatsApp_Image_2025-11-28_at_12.53.16_PM.jpg" alt="Daisy Pink Comforter Set" onerror="this.src='https://via.placeholder.com/600x400/F4A8B5/ffffff?text=Daisy+Pink+Comforter'">
+    <div class="pname">Daisy Pink AC Comforter Set</div>
+    <div class="pprice">Starting ₹1,750 · Free Delivery · 100% Prepaid</div>
+    <button class="pbuy" onclick="window.open('https://www.decorbajar.com','_blank')">Shop Now on DecorBajar →</button>
   </div>
 
-  <!-- INSTRUCTIONS -->
-  <div class="instructions">
-    <div class="inst-title">How to get the best result</div>
-    <div class="inst-item"><div class="inst-dot">1</div><p><strong>Drag</strong> the comforter to position it over your bed</p></div>
-    <div class="inst-item"><div class="inst-dot">2</div><p><strong>Pinch with two fingers</strong> to resize and rotate it to match your bed angle</p></div>
-    <div class="inst-item"><div class="inst-dot">3</div><p>Use the <strong>Opacity slider</strong> to blend it naturally with your bedsheet</p></div>
-    <div class="inst-item"><div class="inst-dot">4</div><p><strong>Save or Share</strong> the preview with family before ordering</p></div>
+  <div class="howto">
+    <div class="htitle">How it works</div>
+    <div class="hitem"><div class="hdot">1</div><p>Upload a photo of your bed from any angle</p></div>
+    <div class="hitem"><div class="hdot">2</div><p>Drag the <strong>4 coloured dots</strong> to the exact corners of your bed</p></div>
+    <div class="hitem"><div class="hdot">3</div><p>Tap <strong>"Apply Comforter"</strong> — it warps perfectly to your bed's angle</p></div>
+    <div class="hitem"><div class="hdot">4</div><p>Save or share with family before you order</p></div>
   </div>
-
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ── STATE ──────────────────────────────────────────────────────────────────
-const COMFORTER_URL = 'https://www.decorbajar.com/cdn/shop/files/WhatsApp_Image_2025-11-28_at_12.53.16_PM.jpg';
+// ── COMFORTER IMAGE (replace src with your PNG URL after uploading to GitHub) ──
+const COMFORTER_SRC = 'https://raw.githubusercontent.com/ravikadyan/bed-visualizer/main/daisy.png';
+const CORNER_COLORS = ['#FF4444','#FFD700','#44BB44','#4488FF'];
+const CORNER_LABELS = ['TL','TR','BR','BL'];
+const DOT_R = 20; // base dot radius
 
-let bedImg = null;
-let comforterImg = null;
-let canvas, ctx;
+let canvas, ctx, bedImg, comforterImg;
+let phase = 'idle';
+let corners = [];
+let dragIdx = -1;
+let opacity = 0.90;
+let savedResult = null;
 
-// Overlay transform state
-let ov = { x:0, y:0, w:0, h:0, rotation:0, opacity:0.85 };
-
-// Touch/mouse state
-let drag = { active:false, startX:0, startY:0, origX:0, origY:0 };
-let pinch = { active:false, startDist:0, startAngle:0, origW:0, origH:0, origRot:0 };
-
-// ── INIT ───────────────────────────────────────────────────────────────────
 window.onload = () => {
-  canvas = document.getElementById('mainCanvas');
+  canvas = document.getElementById('c');
   ctx = canvas.getContext('2d');
 
   // Preload comforter
   comforterImg = new Image();
   comforterImg.crossOrigin = 'anonymous';
-  comforterImg.src = COMFORTER_URL;
+  comforterImg.src = COMFORTER_SRC;
+  comforterImg.onerror = () => {
+    // fallback to original URL
+    comforterImg.src = 'https://www.decorbajar.com/cdn/shop/files/WhatsApp_Image_2025-11-28_at_12.53.16_PM.jpg';
+  };
 
-  // File input
-  document.getElementById('fileInput').addEventListener('change', e => {
-    if(e.target.files[0]) loadBedPhoto(e.target.files[0]);
+  document.getElementById('fi').addEventListener('change', e => {
+    if(e.target.files[0]) loadPhoto(e.target.files[0]);
   });
 
-  // Drag upload card
-  const uc = document.getElementById('uploadCard');
+  const uc = document.getElementById('uc');
   uc.addEventListener('dragover', e => { e.preventDefault(); uc.classList.add('drag'); });
   uc.addEventListener('dragleave', () => uc.classList.remove('drag'));
   uc.addEventListener('drop', e => {
     e.preventDefault(); uc.classList.remove('drag');
-    if(e.dataTransfer.files[0]) loadBedPhoto(e.dataTransfer.files[0]);
+    if(e.dataTransfer.files[0]) loadPhoto(e.dataTransfer.files[0]);
   });
 
-  // Sliders
-  document.getElementById('opSlider').addEventListener('input', function() {
-    ov.opacity = this.value / 100;
-    document.getElementById('opVal').textContent = this.value + '%';
-    render();
-  });
-  document.getElementById('szSlider').addEventListener('input', function() {
-    const scale = this.value / 80;
-    const baseW = ov._baseW * scale;
-    const baseH = ov._baseH * scale;
-    ov.x = ov.x + (ov.w - baseW)/2;
-    ov.y = ov.y + (ov.h - baseH)/2;
-    ov.w = baseW; ov.h = baseH;
-    document.getElementById('szVal').textContent = this.value + '%';
-    render();
+  document.getElementById('opS').addEventListener('input', function() {
+    opacity = this.value / 100;
+    document.getElementById('opV').textContent = this.value + '%';
   });
 
-  // Canvas touch/mouse events
-  canvas.addEventListener('mousedown', onPointerDown);
-  canvas.addEventListener('mousemove', onPointerMove);
-  canvas.addEventListener('mouseup', onPointerUp);
-  canvas.addEventListener('mouseleave', onPointerUp);
-  canvas.addEventListener('touchstart', onTouchStart, {passive:false});
-  canvas.addEventListener('touchmove', onTouchMove, {passive:false});
-  canvas.addEventListener('touchend', onTouchEnd);
+  canvas.addEventListener('mousedown', onDown);
+  canvas.addEventListener('mousemove', onMove);
+  canvas.addEventListener('mouseup', onUp);
+  canvas.addEventListener('mouseleave', onUp);
+  canvas.addEventListener('touchstart', onTD, {passive:false});
+  canvas.addEventListener('touchmove', onTM, {passive:false});
+  canvas.addEventListener('touchend', onTU);
 };
 
-// ── LOAD BED PHOTO ─────────────────────────────────────────────────────────
-function loadBedPhoto(file) {
-  const loader = document.getElementById('loader');
-  loader.classList.add('on');
-
+function loadPhoto(file) {
+  document.getElementById('ldr').classList.add('on');
+  document.getElementById('ldrtxt').textContent = 'Loading photo…';
   const reader = new FileReader();
   reader.onload = ev => {
     bedImg = new Image();
     bedImg.onload = () => {
-      setupCanvas();
-      loader.classList.remove('on');
-      document.getElementById('uploadCard').style.display = 'none';
-      document.getElementById('canvasWrap').classList.add('show');
-      document.getElementById('toolbar').classList.add('show');
-      updateSteps(2);
+      const maxW = Math.min(window.innerWidth - 32, 568);
+      canvas.width = bedImg.naturalWidth;
+      canvas.height = bedImg.naturalHeight;
+      canvas.style.width = maxW + 'px';
+      canvas.style.height = (maxW * bedImg.naturalHeight / bedImg.naturalWidth) + 'px';
+      document.getElementById('ldr').classList.remove('on');
+      document.getElementById('uc').style.display = 'none';
+      document.getElementById('cw').classList.add('show');
+      document.getElementById('tb').classList.add('show');
+      phase = 'corners';
+      initCorners();
+      renderCorners();
+      setStep(2);
     };
     bedImg.src = ev.target.result;
   };
   reader.readAsDataURL(file);
 }
 
-function setupCanvas() {
-  const maxW = Math.min(window.innerWidth - 32, 568);
-  const ratio = bedImg.naturalHeight / bedImg.naturalWidth;
-  canvas.width = bedImg.naturalWidth;
-  canvas.height = bedImg.naturalHeight;
-  canvas.style.width = maxW + 'px';
-  canvas.style.height = (maxW * ratio) + 'px';
-
-  // Place comforter centered, covering ~70% of bed width
-  const cw = canvas.width * 0.70;
-  const ch = cw * (comforterImg.naturalHeight / comforterImg.naturalWidth || 0.75);
-  ov.w = cw; ov.h = ch;
-  ov.x = (canvas.width - cw) / 2;
-  ov.y = (canvas.height - ch) / 2;
-  ov._baseW = cw; ov._baseH = ch;
-  ov.rotation = 0;
-
-  render();
+function initCorners() {
+  const w = canvas.width, h = canvas.height;
+  corners = [
+    {x: w*0.12, y: h*0.22},
+    {x: w*0.88, y: h*0.22},
+    {x: w*0.88, y: h*0.85},
+    {x: w*0.12, y: h*0.85},
+  ];
 }
 
-// ── RENDER ─────────────────────────────────────────────────────────────────
-function render() {
-  if(!bedImg) return;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function resetCorners() { initCorners(); renderCorners(); }
 
-  // Draw bed photo
-  ctx.drawImage(bedImg, 0, 0);
+function renderCorners() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(bedImg,0,0);
 
-  if(!comforterImg.complete || !comforterImg.naturalWidth) {
-    comforterImg.onload = render;
-    return;
-  }
+  // Darken non-bed area
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
 
-  // Draw comforter overlay
-  ctx.save();
-  ctx.globalAlpha = ov.opacity;
-  ctx.translate(ov.x + ov.w/2, ov.y + ov.h/2);
-  ctx.rotate(ov.rotation);
-  ctx.drawImage(comforterImg, -ov.w/2, -ov.h/2, ov.w, ov.h);
+  // Quad highlight
+  ctx.beginPath();
+  ctx.moveTo(corners[0].x,corners[0].y);
+  corners.slice(1).forEach(p => ctx.lineTo(p.x,p.y));
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(201,151,42,0.12)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(201,151,42,0.75)';
+  ctx.lineWidth = Math.max(2, canvas.width*0.004);
+  ctx.setLineDash([canvas.width*0.018, canvas.width*0.01]);
+  ctx.stroke();
+  ctx.setLineDash([]);
 
-  // Subtle inner shadow/edge to blend
-  const grad = ctx.createRadialGradient(0,0,ov.w*.35,0,0,ov.w*.65);
-  grad.addColorStop(0,'rgba(0,0,0,0)');
-  grad.addColorStop(1,'rgba(0,0,0,0.06)');
-  ctx.globalAlpha = ov.opacity * 0.4;
-  ctx.fillStyle = grad;
-  ctx.fillRect(-ov.w/2,-ov.h/2,ov.w,ov.h);
+  // Dots
+  const r = DOT_R * (canvas.width/380);
+  corners.forEach((p,i) => {
+    // Glow
+    const g = ctx.createRadialGradient(p.x,p.y,r*0.2,p.x,p.y,r*2);
+    g.addColorStop(0, CORNER_COLORS[i]+'99');
+    g.addColorStop(1, CORNER_COLORS[i]+'00');
+    ctx.beginPath(); ctx.arc(p.x,p.y,r*2,0,Math.PI*2);
+    ctx.fillStyle=g; ctx.fill();
 
-  ctx.restore();
+    // Circle
+    ctx.beginPath(); ctx.arc(p.x,p.y,r,0,Math.PI*2);
+    ctx.fillStyle=CORNER_COLORS[i]; ctx.fill();
+    ctx.strokeStyle='#fff'; ctx.lineWidth=Math.max(1.5,r*0.12); ctx.stroke();
 
-  // Draw corner handles
-  drawHandles();
-}
-
-function drawHandles() {
-  ctx.save();
-  ctx.translate(ov.x + ov.w/2, ov.y + ov.h/2);
-  ctx.rotate(ov.rotation);
-  const hw = ov.w/2, hh = ov.h/2;
-  const cs = Math.max(16, ov.w * 0.04);
-
-  ctx.strokeStyle = 'rgba(201,151,42,0.9)';
-  ctx.lineWidth = Math.max(2, ov.w * 0.005);
-  ctx.lineCap = 'round';
-
-  [[-hw,-hh],[ hw,-hh],[-hw, hh],[ hw, hh]].forEach(([cx,cy],i) => {
-    ctx.beginPath();
-    const sx = i%2===0?1:-1, sy = i<2?1:-1;
-    ctx.moveTo(cx+sx*cs,cy); ctx.lineTo(cx,cy); ctx.lineTo(cx,cy+sy*cs);
-    ctx.stroke();
+    // Label
+    ctx.fillStyle='#fff';
+    ctx.font=`bold ${Math.max(10,r*0.65)}px Outfit,sans-serif`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(CORNER_LABELS[i],p.x,p.y);
   });
-  ctx.restore();
 }
 
-// ── MOUSE EVENTS ───────────────────────────────────────────────────────────
-function getCanvasPos(e) {
-  const r = canvas.getBoundingClientRect();
-  const scaleX = canvas.width / r.width;
-  const scaleY = canvas.height / r.height;
-  return {
-    x: (e.clientX - r.left) * scaleX,
-    y: (e.clientY - r.top) * scaleY
-  };
-}
-
-function isOnOverlay(px, py) {
-  // Transform point to overlay local space
-  const cx = ov.x + ov.w/2, cy = ov.y + ov.h/2;
-  const dx = px - cx, dy = py - cy;
-  const cos = Math.cos(-ov.rotation), sin = Math.sin(-ov.rotation);
-  const lx = dx*cos - dy*sin, ly = dx*sin + dy*cos;
-  return Math.abs(lx) < ov.w/2 && Math.abs(ly) < ov.h/2;
-}
-
-function onPointerDown(e) {
-  const p = getCanvasPos(e);
-  if(isOnOverlay(p.x,p.y)) {
-    drag.active = true;
-    drag.startX = p.x; drag.startY = p.y;
-    drag.origX = ov.x; drag.origY = ov.y;
-  }
-}
-function onPointerMove(e) {
-  if(!drag.active) return;
-  const p = getCanvasPos(e);
-  ov.x = drag.origX + (p.x - drag.startX);
-  ov.y = drag.origY + (p.y - drag.startY);
-  render();
-}
-function onPointerUp() { drag.active = false; }
-
-// ── TOUCH EVENTS ───────────────────────────────────────────────────────────
-function getTouchPos(t) {
-  const r = canvas.getBoundingClientRect();
-  const scaleX = canvas.width/r.width, scaleY = canvas.height/r.height;
-  return { x:(t.clientX-r.left)*scaleX, y:(t.clientY-r.top)*scaleY };
-}
-function touchDist(t1,t2) {
-  return Math.hypot(t1.clientX-t2.clientX, t1.clientY-t2.clientY);
-}
-function touchAngle(t1,t2) {
-  return Math.atan2(t2.clientY-t1.clientY, t2.clientX-t1.clientX);
-}
-
-function onTouchStart(e) {
-  e.preventDefault();
-  if(e.touches.length === 1) {
-    const p = getTouchPos(e.touches[0]);
-    if(isOnOverlay(p.x,p.y)) {
-      drag.active = true;
-      drag.startX = p.x; drag.startY = p.y;
-      drag.origX = ov.x; drag.origY = ov.y;
-    }
-  } else if(e.touches.length === 2) {
-    drag.active = false;
-    pinch.active = true;
-    pinch.startDist = touchDist(e.touches[0],e.touches[1]);
-    pinch.startAngle = touchAngle(e.touches[0],e.touches[1]);
-    pinch.origW = ov.w; pinch.origH = ov.h;
-    pinch.origRot = ov.rotation;
-  }
-}
-function onTouchMove(e) {
-  e.preventDefault();
-  if(drag.active && e.touches.length === 1) {
-    const p = getTouchPos(e.touches[0]);
-    ov.x = drag.origX + (p.x - drag.startX);
-    ov.y = drag.origY + (p.y - drag.startY);
-    render();
-  } else if(pinch.active && e.touches.length === 2) {
-    const dist = touchDist(e.touches[0],e.touches[1]);
-    const angle = touchAngle(e.touches[0],e.touches[1]);
-    const scale = dist / pinch.startDist;
-    const newW = Math.max(80, Math.min(canvas.width*1.5, pinch.origW * scale));
-    const newH = newW * (pinch.origH / pinch.origW);
-    ov.x = ov.x + (ov.w - newW)/2;
-    ov.y = ov.y + (ov.h - newH)/2;
-    ov.w = newW; ov.h = newH;
-    ov._baseW = newW; ov._baseH = newH;
-    ov.rotation = pinch.origRot + (angle - pinch.startAngle);
-    render();
-  }
-}
-function onTouchEnd(e) {
-  if(e.touches.length < 2) pinch.active = false;
-  if(e.touches.length === 0) drag.active = false;
-}
-
-// ── ACTIONS ────────────────────────────────────────────────────────────────
-function resetPosition() {
+// ── PERSPECTIVE WARP ──────────────────────────────────────────────────────
+function applyWarp() {
   if(!bedImg) return;
-  const cw = canvas.width * 0.70;
-  const ch = cw * (comforterImg.naturalHeight / comforterImg.naturalWidth || 0.75);
-  ov.w = cw; ov.h = ch; ov._baseW = cw; ov._baseH = ch;
-  ov.x = (canvas.width-cw)/2; ov.y = (canvas.height-ch)/2;
-  ov.rotation = 0;
-  document.getElementById('szSlider').value = 80;
-  document.getElementById('szVal').textContent = '80%';
-  render();
-}
+  document.getElementById('ldr').classList.add('on');
+  document.getElementById('ldrtxt').textContent = 'Warping comforter to your bed…';
 
-function changePhoto() {
-  document.getElementById('uploadCard').style.display = '';
-  document.getElementById('canvasWrap').classList.remove('show');
-  document.getElementById('toolbar').classList.remove('show');
-  bedImg = null;
-  updateSteps(1);
-  // Reset file input
-  const fi = document.getElementById('fileInput');
-  fi.value = '';
-}
+  // Give UI time to show loader
+  setTimeout(() => {
+    const cw = comforterImg.naturalWidth || 1024;
+    const ch = comforterImg.naturalHeight || 1024;
 
-function saveImage() {
-  // Temporarily hide handles for clean save
-  const tempHandles = drawHandles;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.drawImage(bedImg,0,0);
-  ctx.save();
-  ctx.globalAlpha = ov.opacity;
-  ctx.translate(ov.x+ov.w/2, ov.y+ov.h/2);
-  ctx.rotate(ov.rotation);
-  ctx.drawImage(comforterImg,-ov.w/2,-ov.h/2,ov.w,ov.h);
-  ctx.restore();
+    // Try pixel-level warp first
+    let srcPixels = null;
+    try {
+      const tmp = document.createElement('canvas');
+      tmp.width=cw; tmp.height=ch;
+      const tc = tmp.getContext('2d');
+      tc.drawImage(comforterImg,0,0);
+      srcPixels = tc.getImageData(0,0,cw,ch);
+    } catch(e) { srcPixels = null; }
 
-  const link = document.createElement('a');
-  link.download = 'decorbajar-preview.jpg';
-  link.href = canvas.toDataURL('image/jpeg', 0.92);
-  link.click();
-  render(); // restore handles
-  updateSteps(3);
-  showToast('✓ Preview saved to your gallery!');
-}
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(bedImg,0,0);
 
-async function shareImage() {
-  // Clean render for share
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.drawImage(bedImg,0,0);
-  ctx.save();
-  ctx.globalAlpha = ov.opacity;
-  ctx.translate(ov.x+ov.w/2, ov.y+ov.h/2);
-  ctx.rotate(ov.rotation);
-  ctx.drawImage(comforterImg,-ov.w/2,-ov.h/2,ov.w,ov.h);
-  ctx.restore();
-  render();
+    if(srcPixels) {
+      // Full homography warp
+      const dst = corners;
+      const src4 = [{x:0,y:0},{x:cw,y:0},{x:cw,y:ch},{x:0,y:ch}];
+      const H = homography(dst, src4);
 
-  canvas.toBlob(async blob => {
-    if(navigator.share && navigator.canShare({files:[new File([blob],'decorbajar.jpg',{type:'image/jpeg'})]})) {
-      try {
-        await navigator.share({
-          title: 'My DecorBajar Preview',
-          text: 'Look how this comforter looks on my bed! 😍 From decorbajar.com',
-          files: [new File([blob],'decorbajar.jpg',{type:'image/jpeg'})]
-        });
-        updateSteps(3);
-      } catch(e) { if(e.name!=='AbortError') saveImage(); }
+      const out = ctx.createImageData(canvas.width, canvas.height);
+      const dw=canvas.width, dh=canvas.height;
+
+      const minX=Math.max(0,Math.floor(Math.min(...dst.map(p=>p.x))-1));
+      const maxX=Math.min(dw,Math.ceil(Math.max(...dst.map(p=>p.x))+1));
+      const minY=Math.max(0,Math.floor(Math.min(...dst.map(p=>p.y))-1));
+      const maxY=Math.min(dh,Math.ceil(Math.max(...dst.map(p=>p.y))+1));
+
+      // Get bed pixels for compositing
+      const bedPx = ctx.getImageData(0,0,dw,dh);
+
+      for(let dy=minY;dy<maxY;dy++){
+        for(let dx=minX;dx<maxX;dx++){
+          if(!inQuad(dx,dy,dst)) continue;
+          const w_=H[6]*dx+H[7]*dy+H[8];
+          const sx=(H[0]*dx+H[1]*dy+H[2])/w_;
+          const sy=(H[3]*dx+H[4]*dy+H[5])/w_;
+          if(sx<0||sx>=cw||sy<0||sy>=ch) continue;
+
+          const si=(Math.floor(sy)*cw+Math.floor(sx))*4;
+          const di=(dy*dw+dx)*4;
+
+          // Skip near-black pixels (PNG black background becomes transparent)
+          const r=srcPixels.data[si], g=srcPixels.data[si+1], b=srcPixels.data[si+2];
+          if(r<30 && g<30 && b<30) continue;
+
+          // Alpha blend with bed
+          const a = opacity;
+          out.data[di]   = bedPx.data[di]*(1-a)   + r*a;
+          out.data[di+1] = bedPx.data[di+1]*(1-a) + g*a;
+          out.data[di+2] = bedPx.data[di+2]*(1-a) + b*a;
+          out.data[di+3] = 255;
+        }
+      }
+      // Copy bed pixels outside quad
+      for(let i=0;i<bedPx.data.length;i+=4){
+        if(out.data[i+3]===0){
+          out.data[i]=bedPx.data[i];
+          out.data[i+1]=bedPx.data[i+1];
+          out.data[i+2]=bedPx.data[i+2];
+          out.data[i+3]=bedPx.data[i+3];
+        }
+      }
+      ctx.putImageData(out,0,0);
     } else {
-      saveImage();
+      // CSS fallback — clip + multiply blend
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(corners[0].x,corners[0].y);
+      corners.slice(1).forEach(p=>ctx.lineTo(p.x,p.y));
+      ctx.closePath(); ctx.clip();
+      const minX=Math.min(...corners.map(p=>p.x));
+      const maxX=Math.max(...corners.map(p=>p.x));
+      const minY=Math.min(...corners.map(p=>p.y));
+      const maxY=Math.max(...corners.map(p=>p.y));
+      ctx.globalAlpha=opacity;
+      ctx.globalCompositeOperation='multiply';
+      ctx.drawImage(comforterImg,minX,minY,maxX-minX,maxY-minY);
+      ctx.restore();
     }
-  }, 'image/jpeg', 0.92);
+
+    savedResult = canvas.toDataURL('image/jpeg',0.93);
+    phase='result';
+    document.getElementById('ctb').style.display='none';
+    document.getElementById('rtb').style.display='';
+    document.getElementById('phbar').style.display='none';
+    document.getElementById('ldr').classList.remove('on');
+    setStep(3);
+  }, 80);
 }
 
-function updateSteps(n) {
-  ['s1','s2','s3'].forEach((id,i) => {
-    document.getElementById(id).classList.toggle('done', i+1 <= n);
+function reapply(val) {
+  opacity = val/100;
+  document.getElementById('opV').textContent = val+'%';
+  applyWarp();
+}
+
+// ── HOMOGRAPHY MATH ───────────────────────────────────────────────────────
+function homography(src4, dst4) {
+  const A=[], b=[];
+  for(let i=0;i<4;i++){
+    const sx=src4[i].x,sy=src4[i].y,dx=dst4[i].x,dy=dst4[i].y;
+    A.push([sx,sy,1,0,0,0,-dx*sx,-dx*sy]);
+    A.push([0,0,0,sx,sy,1,-dy*sx,-dy*sy]);
+    b.push(dx); b.push(dy);
+  }
+  const h=gauss(A,b);
+  return [h[0],h[1],h[2],h[3],h[4],h[5],h[6],h[7],1];
+}
+
+function gauss(A,b) {
+  const n=b.length;
+  const M=A.map((r,i)=>[...r,b[i]]);
+  for(let c=0;c<n;c++){
+    let mx=c;
+    for(let r=c+1;r<n;r++) if(Math.abs(M[r][c])>Math.abs(M[mx][c])) mx=r;
+    [M[c],M[mx]]=[M[mx],M[c]];
+    for(let r=c+1;r<n;r++){
+      const f=M[r][c]/M[c][c];
+      for(let k=c;k<=n;k++) M[r][k]-=f*M[c][k];
+    }
+  }
+  const x=new Array(n).fill(0);
+  for(let i=n-1;i>=0;i--){
+    x[i]=M[i][n];
+    for(let j=i+1;j<n;j++) x[i]-=M[i][j]*x[j];
+    x[i]/=M[i][i];
+  }
+  return x;
+}
+
+function inQuad(px,py,q) {
+  for(let i=0;i<4;i++){
+    const a=q[i],b=q[(i+1)%4];
+    if((b.x-a.x)*(py-a.y)-(b.y-a.y)*(px-a.x)<0) return false;
+  }
+  return true;
+}
+
+// ── POINTER EVENTS ────────────────────────────────────────────────────────
+function cpos(e){
+  const r=canvas.getBoundingClientRect();
+  return {x:(e.clientX-r.left)*canvas.width/r.width, y:(e.clientY-r.top)*canvas.height/r.height};
+}
+function findDot(p){
+  const r=DOT_R*(canvas.width/380)*2;
+  for(let i=0;i<4;i++) if(Math.hypot(p.x-corners[i].x,p.y-corners[i].y)<r) return i;
+  return -1;
+}
+function onDown(e){if(phase==='corners') dragIdx=findDot(cpos(e));}
+function onMove(e){
+  if(phase!=='corners'||dragIdx<0) return;
+  const p=cpos(e);
+  corners[dragIdx]={x:Math.max(0,Math.min(canvas.width,p.x)),y:Math.max(0,Math.min(canvas.height,p.y))};
+  renderCorners();
+}
+function onUp(){dragIdx=-1;}
+function onTD(e){e.preventDefault();if(phase==='corners') dragIdx=findDot(cpos(e.touches[0]));}
+function onTM(e){
+  e.preventDefault();
+  if(phase!=='corners'||dragIdx<0) return;
+  const p=cpos(e.touches[0]);
+  corners[dragIdx]={x:Math.max(0,Math.min(canvas.width,p.x)),y:Math.max(0,Math.min(canvas.height,p.y))};
+  renderCorners();
+}
+function onTU(){dragIdx=-1;}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────────
+function backToCorners(){
+  phase='corners';
+  document.getElementById('ctb').style.display='';
+  document.getElementById('rtb').style.display='none';
+  document.getElementById('phbar').style.display='flex';
+  setStep(2); renderCorners();
+}
+function changePhoto(){
+  document.getElementById('uc').style.display='';
+  document.getElementById('cw').classList.remove('show');
+  document.getElementById('tb').classList.remove('show');
+  document.getElementById('ctb').style.display='';
+  document.getElementById('rtb').style.display='none';
+  document.getElementById('phbar').style.display='flex';
+  document.getElementById('fi').value='';
+  bedImg=null; phase='idle'; setStep(1);
+}
+function saveImg(){
+  const a=document.createElement('a');
+  a.download='decorbajar-mybed.jpg';
+  a.href=savedResult||canvas.toDataURL('image/jpeg',.93);
+  a.click(); setStep(4); showToast('✓ Saved to your gallery!');
+}
+async function shareImg(){
+  const url=savedResult||canvas.toDataURL('image/jpeg',.93);
+  const res=await fetch(url);
+  const blob=await res.blob();
+  const file=new File([blob],'decorbajar.jpg',{type:'image/jpeg'});
+  if(navigator.share&&navigator.canShare({files:[file]})){
+    try{await navigator.share({title:'My DecorBajar Preview',text:'Look how this looks on my bed! 😍 decorbajar.com',files:[file]});setStep(4);}
+    catch(e){if(e.name!=='AbortError')saveImg();}
+  } else saveImg();
+}
+function setStep(n){
+  ['s1','s2','s3','s4'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    el.classList.remove('active','done');
+    if(i+1===n) el.classList.add('active');
+    else if(i+1<n) el.classList.add('done');
   });
 }
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
 }
 </script>
 </body>
